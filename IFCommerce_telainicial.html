@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFCommerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Barra superior */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #2d8a3e;
+            padding: 10px;
+            color: white;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .search-bar {
+            flex: 1;
+            margin: 0 10px;
+            display: flex;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 5px;
+        }
+
+        .search-bar button {
+            background: white;
+            border: none;
+            padding: 5px 10px;
+        }
+
+        .top-nav a,
+        .user-options a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Menu lateral */
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            height: 100%;
+            background: white;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            padding: 15px;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .logout {
+            width: 100%;
+            padding: 10px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Produtos */
+        main {
+            padding: 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .product {
+            text-align: center;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 120px;
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra Superior -->
+    <header class="top-bar">
+        <div class="logo">
+            <img src="logo_ifrj.png" alt="IFRJ">
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquise por produtos, categorias, vendedores...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <nav class="top-nav">
+            <a href="#">Categorias</a>
+            <a href="#">Vender</a>
+            <a href="#">Cupons</a>
+        </nav>
+        <div class="user-options">
+            <a href="#"><i class="fas fa-user"></i> Bem-vindo, faça login</a>
+            <a href="#"><i class="fas fa-shopping-basket"></i> Meus Pedidos</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+        </div>
+    </header>
+
+    <!-- Menu lateral -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <p>Olá, faça seu login.</p>
+            <button class="close-menu" onclick="toggleMenu()">&times;</button>
+        </div>
+        <ul>
+            <li><i class="fas fa-fire"></i> Mais vendidos</li>
+            <li><i class="fas fa-heart"></i> Favoritos</li>
+            <li><i class="fas fa-box"></i> Histórico de pedidos</li>
+            <li><i class="fas fa-ticket-alt"></i> Meus Cupons</li>
+            <li><i class="fas fa-bell"></i> Notificações</li>
+        </ul>
+        <hr>
+        <ul>
+            <li>Venda com a gente</li>
+            <li>Fale conosco</li>
+            <li>Regras dos cupons</li>
+            <li>Regras de convites</li>
+        </ul>
+        <hr>
+        <button class="logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section class="products">
+            <div class="product">
+                <div class="image-placeholder"></div>
+                <p>Descrição do Produto</p>
+            </div>
+            <div class="product">
+                <div class="image-placeholder"></div>
+                <p>Descrição do Produto</p>
+            </div>
+            <div class="product">
+                <div class="image-placeholder"></div>
+                <p>Descrição do Produto</p>
+            </div>
+            <div class="product">
+                <div class="image-placeholder"></div>
+                <p>Descrição do Produto</p>
+            </div>
+            <div class="product">
+                <div class="image-placeholder"></div>
+                <p>Descrição do Produto</p>
+            </div>
+            <div class="product">
+                <div class="image-placeholder"></div>
+                <p>Descrição do Produto</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("open");
+        }
+    </script>
+
+</body>
+</html>
